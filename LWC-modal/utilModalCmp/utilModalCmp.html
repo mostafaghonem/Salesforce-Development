@@ -1,0 +1,40 @@
+<template>
+    <template if:true={showModal}>
+        <div>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container" style="align-items: center;">
+                    <header class="slds-modal__header" style="min-width: 1100px;">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={handleClose}>
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">close</span>
+                        </button>
+                        <slot name="header">
+                            <h2 class="slds-text-heading_medium slds-hyphenate">Header</h2>
+                        </slot>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1"
+                        style="min-width: 1100px;">
+                        <slot name="body">
+                            <p>Body goes here</p>
+                        </slot>
+                    </div>
+                    <footer class="slds-modal__footer" style="min-width: 1100px;">
+                        <template if:true={showNegative}>
+                            <button class="slds-button slds-button_neutral"
+                                onclick={handleNegative}>{negativeButtonLabel}</button>
+                        </template>
+                        <template if:true={showPositive}>
+                            <button class="slds-button slds-button_neutral"
+                                onclick={handlePositive}>{positiveButtonLabel}</button>
+                        </template>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </template>
+</template>

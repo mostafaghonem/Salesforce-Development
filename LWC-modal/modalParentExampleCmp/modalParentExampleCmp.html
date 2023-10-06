@@ -1,0 +1,17 @@
+<template>
+    <lightning-button varaint="brand" label="Open Modal" title="Open Modal" onclick={showModalPopup}
+        class="slds-m-left_small"></lightning-button>
+    <c-util-modal-cmp show-modal={showModal} show-positive={showPositiveButton}
+        positive-button-label={positiveButtonLable} show-negative={showNegativeButton} onpositive={closeModal}
+        onclose={closeModal}>
+
+        <div slot="header">
+            <h2 slot="header" class="slds-text-heading_medium slds-hyphenate">Header from Parent component</h2>
+        </div>
+
+        <div slot="body">
+            this is called form Parent component
+        </div>
+
+    </c-util-modal-cmp>
+</template>
