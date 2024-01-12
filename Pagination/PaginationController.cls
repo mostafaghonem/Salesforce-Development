@@ -26,7 +26,7 @@ public class PaginationController {
         return null;
     }
 
-    public PageReference previous() {
+    public PageReference previousPage() {
         if (pageNumber > 1) {
             pageNumber--;
             updateRecords();
@@ -34,7 +34,7 @@ public class PaginationController {
         return null;
     }
 
-    public PageReference next() {
+    public PageReference nextPage() {
         if (pageNumber < totalPages) {
             pageNumber++;
             updateRecords();
