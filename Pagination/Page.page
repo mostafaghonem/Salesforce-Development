@@ -1,0 +1,19 @@
+<apex:page controller="PaginationController">
+    <apex:pageBlock title="Pagination Example">
+        <apex:pageBlockTable value="{!accounts}" var="acc" rows="10" id="theTable">
+            <apex:column value="{!acc.Name}" headerValue="Account Name"/>
+            <!-- Add more columns as needed -->
+
+            <!-- Add your additional columns here -->
+
+        </apex:pageBlockTable>
+        
+        <apex:panelGrid columns="6">
+            <apex:commandLink action="{!first}" value="First"/>
+            <apex:commandLink action="{!previous}" value="Previous"/>
+            <apex:outputText value="Page {!pageNumber} of {!totalPages}"/>
+            <apex:commandLink action="{!next}" value="Next"/>
+            <apex:commandLink action="{!last}" value="Last"/>
+        </apex:panelGrid>
+    </apex:pageBlock>
+</apex:page>
