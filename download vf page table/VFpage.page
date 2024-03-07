@@ -1,0 +1,41 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" controller="controller" docType="html-5.0" readOnly="true">
+    <head>
+        <style>
+            
+        
+        </style>
+        <script type="text/javascript">
+            function downloadExcel() {
+                console.log(document.getElementById('report-table').innerHTML);
+                var element = 'data:application/vnd.ms-excel,'+encodeURIComponent(document.getElementById('report-table').outerHTML);
+                let downloadElement = document.createElement('a');
+                downloadElement.href = element;
+                downloadElement.target = '_self';
+                // use .csv as extension on below line if you want to export data as csv
+                downloadElement.download = 'monthly Occupancy Report.xls';
+                document.body.appendChild(downloadElement);
+                downloadElement.click();
+            }
+        </script>
+    </head>
+
+    <apex:form >
+        <apex:pageBlock id="table">
+            <table id="report-table">
+
+                <thead>
+
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>
