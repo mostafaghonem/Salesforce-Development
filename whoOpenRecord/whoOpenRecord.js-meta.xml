@@ -9,6 +9,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
+            <property name="Object_Api_Name" type="String" />
             <property name="field_Api_Name" type="String" />
         </targetConfig>
     </targetConfigs>

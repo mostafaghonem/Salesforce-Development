@@ -1,16 +1,17 @@
 import { LightningElement ,api,wire} from 'lwc';
 import Id from "@salesforce/user/Id";
 import { updateRecord } from 'lightning/uiRecordApi';
-import getCaseById from '@salesforce/apex/WhoOpenRecordHelper.getCaseById';
+import getObjectById from '@salesforce/apex/WhoOpenRecordHelper.getObjectById';
 
 
 export default class WhoOpenRecord extends LightningElement {
+    @api Object_Api_Name="";
     @api field_Api_Name="";
     @api recordId
     userId = String(Id);
 
     connectedCallback(){
-        getCaseById({recordId:this.recordId , fieldApiName:this.field_Api_Name.toString()})
+        getObjectById({recordId:this.recordId , fieldApiName:this.field_Api_Name.toString() , objectName:this.Object_Api_Name.toString()})
         .then((data)=>{
             console.log(data[this.field_Api_Name]);
             if(data[this.field_Api_Name] == undefined){
